@@ -14,7 +14,7 @@ Contains the Figures generated as part of the analysis
 
 Files ending in .sav are the logistic regression fits. these are fits generated with the scikit learn module in python. You can import this into the model (an example of this is in the Cilantro Process Model Updated.py file)
 
-###The Cilantro Process Model Updated.py 
+### The Cilantro Process Model Updated.py 
 Is the model used to generate Figures 4 and 5. This file contains the process model and all the calculations. The scenarios for Figure 4 start in line 433, as labeled. 
 Each scenario of 10,000 iterations will take approximately 1.5 hrs to run. So you can run a lower number of iterations. The results may change slightly from what is reported in the publication due to normal model variability. However, the trends should be the same. 
 B1 = refers to daily contamination
