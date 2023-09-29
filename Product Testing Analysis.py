@@ -163,9 +163,9 @@ Case_Weight = 20 #lb per case
 Bunches_Weight = Case_Weight/Plant_Weight
 
 
-#Water Characteristics, not necesarily used. 
+#Water Characteristics, not necesarily used for peoduct testing. 
 Water_Irrigation_In = 12 #Inches of water per harvest season
-Total_L_Season = 63.6*63.6*(0.0254*Water_Irrigation_In)*1000 # one acre 40.46m2 * 0.348 m of water * 10000 to convert tot m3
+Total_L_Season = 63.6*63.6*(0.0254*Water_Irrigation_In)*1000 # one acre 63.6*63.6 * 0.348 m of water * 10000 to convert tot m3
 Days_per_season = 45 #days
 L_water_day = Total_L_Season/Days_per_season
 
@@ -175,13 +175,11 @@ OO_per_H = 20
 
 Initial_Levels_Bulk_Low = int(Total_L_Season*OO_per_L)
 Initial_Levels_Bulk_Day_Low = L_water_day*OO_per_L
-#299376, Oo per season
-#6652.8, Oo per day
+
 Initial_Levels_Bulk_High = int(Total_L_Season*OO_per_H)
 Initial_Levels_Bulk_Day_High = L_water_day*OO_per_H
 
-#9979222, Oo per season
-#221760, Oo per day
+
 
 #So form this we can define that best case scenario 6,652 Oo and worse case scenario 9,979,222
 # we can define a range between 0 and 10_000_000 Oo iun the field. 
@@ -235,12 +233,12 @@ Cilantro_df=pd.DataFrame({"Plant_ID": Total_Plants_List,
 #Cont_Levels_log10_Num =[10**x for x in Cont_Levels_log10 ]
 
 
-
-Cont_Levels_log10_Num=[22000*454*x for x in list(np.arange(0,1.7, 0.01))]
+#Cont levels initially we did unti 8 oocyst per g/ trimmed to 1.7 for running purposes
+Cont_Levels_Num=[22000*454*x for x in list(np.arange(0,1.7, 0.01))]
 #Cont_Levels_log10_Num=[22000*454*x for x in list(np.arange(0,0.5, 0.01))]
 
 #%%
-Outs_32g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_log10_Num , 
+Outs_32g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_Num , 
            Cilantro_df = Cilantro_df, 
            percent_cont =100, 
            Sample_Weight =25,
@@ -249,7 +247,7 @@ Outs_32g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_log10_Num ,
            Plant_Weight = 1,
            loaded_model =  qPCR_Model,
            Field_Iters =1, 
-           Sampling_Iters =1000)
+           Sampling_Iters =100)
 
 Outs_32g.to_csv("C:\\Users\\gareyes3\\Documents\\GitHub\\CPS-Farm-To-Facility-Cilantro\\Data_Cilantro_Outputs\\Product_Testing_Meds.csv")
 
@@ -257,7 +255,7 @@ Outs_32g.to_csv("C:\\Users\\gareyes3\\Documents\\GitHub\\CPS-Farm-To-Facility-Ci
 #%%
 #Running Analysys for 25g grabs
 
-Outs_32g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_log10_Num , 
+Outs_32g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_Num , 
            Cilantro_df = Cilantro_df, 
            percent_cont =100, 
            Sample_Weight =25,
@@ -268,7 +266,7 @@ Outs_32g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_log10_Num ,
            Field_Iters =100, 
            Sampling_Iters =100)
 
-Outs_16g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_log10_Num , 
+Outs_16g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_Num , 
            Cilantro_df = Cilantro_df, 
            percent_cont =100, 
            Sample_Weight =25,
@@ -279,7 +277,7 @@ Outs_16g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_log10_Num ,
            Field_Iters =100, 
            Sampling_Iters =100)
 
-Outs_8g = Iter_Cont_Levels(Cont_Levels =Cont_Levels_log10_Num, 
+Outs_8g = Iter_Cont_Levels(Cont_Levels =Cont_Levels_Num, 
            Cilantro_df = Cilantro_df, 
            percent_cont =100, 
            Sample_Weight =25,
@@ -291,7 +289,7 @@ Outs_8g = Iter_Cont_Levels(Cont_Levels =Cont_Levels_log10_Num,
            Sampling_Iters =100)
 
 
-Outs_4g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_log10_Num, 
+Outs_4g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_Num, 
            Cilantro_df = Cilantro_df, 
            percent_cont =100, 
            Sample_Weight =25,
@@ -302,7 +300,7 @@ Outs_4g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_log10_Num,
            Field_Iters =100, 
            Sampling_Iters =100)
 
-Outs_2g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_log10_Num, 
+Outs_2g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_Num, 
            Cilantro_df = Cilantro_df, 
            percent_cont =100, 
            Sample_Weight =25,
@@ -313,7 +311,7 @@ Outs_2g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_log10_Num,
            Field_Iters =100, 
            Sampling_Iters =100)
 
-Outs_1g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_log10_Num, 
+Outs_1g = Iter_Cont_Levels(Cont_Levels = Cont_Levels_Num, 
            Cilantro_df = Cilantro_df, 
            percent_cont =100, 
            Sample_Weight =25,
