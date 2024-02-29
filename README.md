@@ -56,3 +56,8 @@ This project's code is licensed under the GNU General Public License v3.0 and da
 
 ## Acknowledgements & Funding
 Funding for the project was made possible by The Center for Produce Safety project 2021CPS10. Any opinions, findings, conclusions, or recommendations expressed in this publication are those of the authors and do not necessarily reflect the view of The Center for Produce Safety. ([https://www.centerforproducesafety.org/](https://www.centerforproducesafety.org/)).
+
+### Declaration of Competing Interest
+The authors declare the following financial interests/personal relationships which may be considered as potential competing interests:
+* Matthew J. Stasiewicz reports financial support was provided by Center For Produce Safety.
+* Matthew J. Stasiewicz reports a relationship with Western Growers Association that includes: consulting or advisory.
